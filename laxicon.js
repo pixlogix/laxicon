@@ -15,7 +15,7 @@
         // declare default options
         var settings = $.extend({
             speed: 0.15,
-            bgImgPath: "",
+            bgImgPath: "https://download.unsplash.com/photo-1434145175661-472d90344c15",
             bgXPos: "center",
             bgSize: "cover",
             bgRepeat: "no-repeat",
