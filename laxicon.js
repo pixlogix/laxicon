@@ -18,7 +18,8 @@
             bgImgPath: "",
             bgXPos: "center",
             bgSize: "cover",
-            bgRepeat: "no-repeat"
+            bgRepeat: "no-repeat",
+            gradOverlay: 'none'
         }, options);
 
         return this.each( function() {
@@ -29,7 +30,8 @@
                 windowHeight,
                 scrollTop,
                 elemOffsetTop,
-                elemHeight;
+                elemHeight,
+                bgImage;
 
             $(window).on("load resize scroll", function() {
 
@@ -46,12 +48,22 @@
                 if (elemOffsetTop + elemHeight <= scrollTop || elemOffsetTop >= scrollTop + windowHeight) {
                     return;
                 }
+
+                // if gradient overlay
+                if (settings.gradOverlay === 'shade') {
+                    bgImage = "linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url(" + settings.bgImgPath + ")";
+                } else if (settings.gradOverlay === 'tint') {
+                    bgImage = "linear-gradient(to bottom, rgba(255,255,255,0.6) 0%,rgba(255,255,255,0.6) 100%), url(" + settings.bgImgPath + ")";
+                } else {
+                    bgImage = "url(" + settings.bgImgPath + ")";
+                }
+
                 // constantly set css
                 $element.css({
                     backgroundPosition: xPos + " " + (Math.round((elemOffsetTop - scrollTop) * settings.speed)) + "px",
                     backgroundSize: settings.bgSize,
                     backgroundRepeat: settings.bgRepeat,
-                    backgroundImage: "url(" + settings.bgImgPath + ")",
+                    backgroundImage: bgImage,
                     backgroundAttachment: "fixed"
                 });
 
