@@ -14,7 +14,7 @@ I like to use smoothscroll.js whenever I use parallax because of Chrome on Windo
 
 ````html
 <section class="parallax">
-      <h1 class="awesome-title">Compelling</h1>
+    <h1 class="awesome-title">Compelling</h1>
 </section>
 ````
 ````css
