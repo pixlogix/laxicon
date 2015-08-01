@@ -6,6 +6,8 @@ Crazy simple parallax plugin.
 
 ## Usage
 
+**[Demo](http://jsdesign.me/projects/laxicon/)**
+
 This will add very basic parallax function to background images. Set up the section with HTML/CSS (height, padding, whatever), this plugin won't do that for you. The image path goes inside the plugin options when you call it. Otherwise the plugin will load up this image from unsplash: https://download.unsplash.com/photo-1434145175661-472d90344c15
 
 I like to use smoothscroll.js whenever I use parallax because of Chrome on Windows being anti-smooth scrolling. That's a lot of users. https://gist.github.com/galambalazs/6477177
