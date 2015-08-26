@@ -1,5 +1,5 @@
 /*!
- * laxicon.js v1.3
+ * laxicon.js v1.4
  * Crazy simple parallaxing
  * Jeannie Stevenson
  * @JSDesign (github)
@@ -19,7 +19,10 @@
             bgXPos: 'center',
             bgSize: 'cover',
             bgRepeat: 'no-repeat',
-            gradOverlay: 'none'
+            overlay: false,
+            overlayType: 'shade',
+            overlayPatternPath: 'http://16secondstare.com/admin/wp-content/themes/rockit1/images/pattern/pattern5-bg.png',
+            breakpoint: 769
         }, options);
 
         return this.each( function() {
@@ -36,7 +39,7 @@
             // set xPos variable to default background x position setting
             xPos = settings.bgXPos;
 
-            if ($(window).width() >= 769) {
+            if ($(window).width() >= settings.breakpoint) {
 
                 $(window).on('load resize scroll', function() {
 
@@ -51,23 +54,44 @@
                         return;
                     }
 
-                    // if gradient overlay
-                    if (settings.gradOverlay === 'shade') {
-                        bgImage = 'linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url(' + settings.bgImgPath + ')';
-                    } else if (settings.gradOverlay === 'tint') {
-                        bgImage = 'linear-gradient(to bottom, rgba(255,255,255,0.6) 0%,rgba(255,255,255,0.6) 100%), url(' + settings.bgImgPath + ')';
-                    } else {
-                        bgImage = 'url(' + settings.bgImgPath + ')';
+                    // css for tint, shad, or none
+                    function setCssTSN() {
+                        $element.css({
+                            backgroundImage: bgImage,
+                            backgroundPosition: xPos + ' ' + (Math.round((elemOffsetTop - winScrollTop) * settings.speed)) + 'px',
+                            backgroundSize: settings.bgSize,
+                            backgroundRepeat: settings.bgRepeat,
+                            backgroundAttachment: 'fixed'
+                        });
                     }
 
-                    // constantly set css
-                    $element.css({
-                        backgroundPosition: xPos + ' ' + (Math.round((elemOffsetTop - winScrollTop) * settings.speed)) + 'px',
-                        backgroundSize: settings.bgSize,
-                        backgroundRepeat: settings.bgRepeat,
-                        backgroundImage: bgImage,
-                        backgroundAttachment: 'fixed'
-                    });
+                    // css for pattern
+                    function setCssP() {
+                        $element.css({
+                            backgroundImage: bgImage,
+                            backgroundPosition: 'top left, ' + xPos + ' ' + (Math.round((elemOffsetTop - winScrollTop) * settings.speed)) + 'px',
+                            backgroundSize: 'auto, ' + settings.bgSize,
+                            backgroundRepeat: 'repeat, ' + settings.bgRepeat,
+                            backgroundAttachment: 'fixed'
+                        });
+                    }
+
+                    // if overlay
+                    if (settings.overlay === true) {
+                        if (settings.overlayType === 'shade') {
+                            bgImage = 'linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url(' + settings.bgImgPath + ')';
+                            setCssTSN();
+                        } else if (settings.overlayType === 'tint') {
+                            bgImage = 'linear-gradient(to bottom, rgba(255,255,255,0.6) 0%,rgba(255,255,255,0.6) 100%), url(' + settings.bgImgPath + ')';
+                            setCssTSN();
+                        } else if (settings.overlayType === 'pattern') {
+                            bgImage = 'url(' + settings.overlayPatternPath + '), url(' + settings.bgImgPath + ')';
+                            setCssP();
+                        }
+                    } else {
+                        bgImage = 'url(' + settings.bgImgPath + ')';
+                        setCssTSN();
+                    }
 
                 });
 
@@ -86,11 +110,15 @@
                         return;
                     }
 
-                    // if gradient overlay
-                    if (settings.gradOverlay === 'shade') {
-                        bgImage = 'linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url(' + settings.bgImgPath + ')';
-                    } else if (settings.gradOverlay === 'tint') {
-                        bgImage = 'linear-gradient(to bottom, rgba(255,255,255,0.6) 0%,rgba(255,255,255,0.6) 100%), url(' + settings.bgImgPath + ')';
+                    // if overlay
+                    if (settings.overlay === true) {
+                        if (settings.overlayType === 'shade') {
+                            bgImage = 'linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url(' + settings.bgImgPath + ')';
+                        } else if (settings.overlayType === 'tint') {
+                            bgImage = 'linear-gradient(to bottom, rgba(255,255,255,0.6) 0%,rgba(255,255,255,0.6) 100%), url(' + settings.bgImgPath + ')';
+                        } else if (settings.overlayType === 'pattern') {
+                            bgImage = 'url(' + settings.overlayPatternPath + '), url(' + settings.bgImgPath + ')';
+                        }
                     } else {
                         bgImage = 'url(' + settings.bgImgPath + ')';
                     }
@@ -102,7 +130,7 @@
                         backgroundRepeat: settings.bgRepeat,
                         backgroundImage: bgImage,
                         // for now :(
-                        backgroundAttachment: 'scroll',
+                        backgroundAttachment: 'scroll'
                     });
 
                 });
