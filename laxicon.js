@@ -54,8 +54,8 @@
                         return;
                     }
 
-                    // css for tint, shad, or none
-                    function setCssTSN() {
+                    // css for tint, shade, or none
+                    function setCSS1() {
                         $element.css({
                             backgroundImage: bgImage,
                             backgroundPosition: xPos + ' ' + (Math.round((elemOffsetTop - winScrollTop) * settings.speed)) + 'px',
@@ -66,7 +66,7 @@
                     }
 
                     // css for pattern
-                    function setCssP() {
+                    function setCSS2() {
                         $element.css({
                             backgroundImage: bgImage,
                             backgroundPosition: 'top left, ' + xPos + ' ' + (Math.round((elemOffsetTop - winScrollTop) * settings.speed)) + 'px',
@@ -80,17 +80,17 @@
                     if (settings.overlay === true) {
                         if (settings.overlayType === 'shade') {
                             bgImage = 'linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url(' + settings.bgImgPath + ')';
-                            setCssTSN();
+                            setCSS1();
                         } else if (settings.overlayType === 'tint') {
                             bgImage = 'linear-gradient(to bottom, rgba(255,255,255,0.6) 0%,rgba(255,255,255,0.6) 100%), url(' + settings.bgImgPath + ')';
-                            setCssTSN();
+                            setCSS1();
                         } else if (settings.overlayType === 'pattern') {
                             bgImage = 'url(' + settings.overlayPatternPath + '), url(' + settings.bgImgPath + ')';
-                            setCssP();
+                            setCSS2();
                         }
                     } else {
                         bgImage = 'url(' + settings.bgImgPath + ')';
-                        setCssTSN();
+                        setCSS1();
                     }
 
                 });
@@ -110,28 +110,46 @@
                         return;
                     }
 
+                    // css for tint, shade, or none
+                    function setCSS3() {
+                        $element.css({
+                            backgroundImage: bgImage,
+                            backgroundPosition: xPos + ' top',
+                            backgroundSize: 'auto 100%',
+                            backgroundRepeat: settings.bgRepeat,
+                            // for now :(
+                            backgroundAttachment: 'scroll'
+                        });
+                    }
+
+                    // css for pattern
+                    function setCSS4() {
+                        $element.css({
+                            backgroundImage: bgImage,
+                            backgroundPosition: 'top left, ' + xPos + ' top',
+                            backgroundSize: 'auto, auto 100%',
+                            backgroundRepeat: 'repeat, ' + settings.bgRepeat,
+                            // for now :(
+                            backgroundAttachment: 'scroll'
+                        });
+                    }
+
                     // if overlay
                     if (settings.overlay === true) {
                         if (settings.overlayType === 'shade') {
                             bgImage = 'linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url(' + settings.bgImgPath + ')';
+                            setCSS3();
                         } else if (settings.overlayType === 'tint') {
                             bgImage = 'linear-gradient(to bottom, rgba(255,255,255,0.6) 0%,rgba(255,255,255,0.6) 100%), url(' + settings.bgImgPath + ')';
+                            setCSS3();
                         } else if (settings.overlayType === 'pattern') {
                             bgImage = 'url(' + settings.overlayPatternPath + '), url(' + settings.bgImgPath + ')';
+                            setCSS4();
                         }
                     } else {
                         bgImage = 'url(' + settings.bgImgPath + ')';
+                        setCSS3();
                     }
-
-                    // constantly set css
-                    $element.css({
-                        backgroundPosition: xPos + ' top',
-                        backgroundSize: 'auto 100%',
-                        backgroundRepeat: settings.bgRepeat,
-                        backgroundImage: bgImage,
-                        // for now :(
-                        backgroundAttachment: 'scroll'
-                    });
 
                 });
 
