@@ -4,6 +4,7 @@
  * Jeannie Stevenson
  * @JSDesign (github)
  * Licensed under the MIT license
+ * https://github.com/JSDesign/laxicon
  */
 
 (function($) {
