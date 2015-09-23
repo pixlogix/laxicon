@@ -67,7 +67,7 @@ $('.parallax').laxicon({
 
 Set `overlay` to true for a tint, shade, or pattern overlay. Option `overlayType` can have a value of `'tint'`,  `'shade'`, or `'pattern'` to add a white transparent, black transparent, or repeating pattern image overlay to the background image. Tints and shades use a CSS linear gradient.
 
-Other CSS options are `bgXPos` for placement of the background image on the x-axis (default is `'center'`), `bgSize` (default is `'cover'`), and `bgRepeat` (default is `'no-repeat'`).
+Other CSS options are `bgXPos` for placement of the background image on the x-axis (default is `'center'`), `bgSize` (default is `'cover'`), and `bgRepeat` (default is `'no-repeat'`). If using the pattern overlay option, there is no need to set it to repeat - it will repeat automatically.
 
 ### License
 Licensed under the terms of the MIT license.
