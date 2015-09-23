@@ -33,7 +33,7 @@ I like to use smoothscroll.js whenever I use parallax because of Chrome on Windo
 <script defer src="js/laxicon.js"></script>
 ````
 
-**Call Function With Just Image Path Option**
+**Call Function with Just Image Path**
 
 ````javascript
 $('.parallax').laxicon({
@@ -41,17 +41,31 @@ $('.parallax').laxicon({
 });
 ````
 
-**Or Call Function With More Options**
+**Call Function with Speed and Gradient Overlay**
 
 ````javascript
 $('.parallax').laxicon({
-    speed: 0.25,
-    bgImgPath: 'images/stock-ferris-wheel.jpg',
-    gradOverlay: 'tint'
+    speed: 0.40,
+    bgImgPath: 'images/stock-bus.jpg',
+    overlay: true,
+    overlayType: 'shade'
 });
 ````
 
-Option `gradOverlay` can have a value of `'tint'` or `'shade'` to add a white-ish or black-ish transparent overlay to the image using a CSS linear gradient. It can be left out and will default to `'none'`.
+
+**Call Function with Speed and Pattern Overlay**
+
+````javascript
+$('.parallax').laxicon({
+    speed: 0.15,
+    bgImgPath: 'images/stock-lighthouse.jpg',
+    overlay: true,
+    overlayType: 'pattern',
+    overlayPatternPath: 'images/screening.png'
+});
+````
+
+Set `overlay` to true for a tint, shade, or pattern overlay. Option `overlayType` can have a value of `'tint'`,  `'shade'`, or `'pattern'` to add a white transparent, black transparent, or repeating pattern image overlay to the background image. Tints and shades use a CSS linear gradient.
 
 Other CSS options are `bgXPos` for placement of the background image on the x-axis (default is `'center'`), `bgSize` (default is `'cover'`), and `bgRepeat` (default is `'no-repeat'`).
 
