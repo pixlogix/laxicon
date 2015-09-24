@@ -22,7 +22,7 @@
             bgRepeat: 'no-repeat',
             overlay: false,
             overlayType: 'shade',
-            overlayPatternPath: 'http://16secondstare.com/admin/wp-content/themes/rockit1/images/pattern/pattern5-bg.png',
+            overlayPatternPath: 'http://jsdesign.me/projects/images/screening3.png',
             breakpoint: 769
         }, options);
 
