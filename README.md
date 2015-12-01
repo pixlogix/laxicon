@@ -10,8 +10,6 @@ Crazy simple parallax plugin.
 
 This will add very basic parallax function to background images. Set up the section with HTML/CSS (height, padding, whatever), this plugin won't do that for you. The image path goes inside the plugin options when you call it. Otherwise the plugin will load up this image from unsplash: https://download.unsplash.com/photo-1434145175661-472d90344c15
 
-I like to use smoothscroll.js whenever I use parallax because of Chrome on Windows being anti-smooth scrolling. That's a lot of users. https://gist.github.com/galambalazs/6477177
-
 **HTML & CSS**
 
 ````html
@@ -33,7 +31,7 @@ I like to use smoothscroll.js whenever I use parallax because of Chrome on Windo
 <script defer src="js/laxicon.js"></script>
 ````
 
-**Call Function With Just Image Path Option**
+**Call Function with Just Image Path**
 
 ````javascript
 $('.parallax').laxicon({
@@ -41,19 +39,33 @@ $('.parallax').laxicon({
 });
 ````
 
-**Or Call Function With More Options**
+**Call Function with Speed and Gradient Overlay**
 
 ````javascript
 $('.parallax').laxicon({
-    speed: 0.25,
-    bgImgPath: 'images/stock-ferris-wheel.jpg',
-    gradOverlay: 'tint'
+    speed: 0.40,
+    bgImgPath: 'images/stock-bus.jpg',
+    overlay: true,
+    overlayType: 'shade'
 });
 ````
 
-Option `gradOverlay` can have a value of `'tint'` or `'shade'` to add a white-ish or black-ish transparent overlay to the image using a CSS linear gradient. It can be left out and will default to `'none'`.
 
-Other CSS options are `bgXPos` for placement of the background image on the x-axis (default is `'center'`), `bgSize` (default is `'cover'`), and `bgRepeat` (default is `'no-repeat'`).
+**Call Function with Speed and Pattern Overlay**
+
+````javascript
+$('.parallax').laxicon({
+    speed: 0.15,
+    bgImgPath: 'images/stock-lighthouse.jpg',
+    overlay: true,
+    overlayType: 'pattern',
+    overlayPatternPath: 'images/screening.png'
+});
+````
+
+Set `overlay` to true for a tint, shade, or pattern overlay. Option `overlayType` can have a value of `'tint'`,  `'shade'`, or `'pattern'` to add a white transparent, black transparent, or repeating pattern image overlay to the background image. Tints and shades use a CSS linear gradient.
+
+Other CSS options are `bgXPos` for placement of the background image on the x-axis (default is `'center'`), `bgSize` (default is `'cover'`), and `bgRepeat` (default is `'no-repeat'`). If using the pattern overlay option, there is no need to set it to repeat - it will repeat automatically.
 
 ### License
 Licensed under the terms of the MIT license.

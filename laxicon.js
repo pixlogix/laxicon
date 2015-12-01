@@ -4,6 +4,7 @@
  * Jeannie Stevenson
  * @JSDesign (github)
  * Licensed under the MIT license
+ * https://github.com/JSDesign/laxicon
  */
 
 (function($) {
@@ -22,7 +23,7 @@
             overlay: false,
             overlayType: 'shade',
             overlayPercent: 60,
-            overlayPatternPath: 'http://16secondstare.com/admin/wp-content/themes/rockit1/images/pattern/pattern5-bg.png',
+            overlayPatternPath: 'http://jsdesign.me/projects/images/screening3.png',
             breakpoint: 769
         }, options);
 
