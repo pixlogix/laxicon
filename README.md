@@ -28,7 +28,7 @@ This will add very basic parallax function to background images. Set up the sect
 
 ````html
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script defer src="js/laxicon.js"></script>
+<script src="js/laxicon.js"></script>
 ````
 
 **Call Function with Just Image Path**
@@ -39,14 +39,15 @@ $('.parallax').laxicon({
 });
 ````
 
-**Call Function with Speed and Gradient Overlay**
+**Call Function with Speed and Gradient Overlay With Alpha Percentage**
 
 ````javascript
 $('.parallax').laxicon({
     speed: 0.40,
     bgImgPath: 'images/stock-bus.jpg',
     overlay: true,
-    overlayType: 'shade'
+    overlayType: 'shade',
+    overlayPercent: 60
 });
 ````
 
@@ -63,7 +64,7 @@ $('.parallax').laxicon({
 });
 ````
 
-Set `overlay` to true for a tint, shade, or pattern overlay. Option `overlayType` can have a value of `'tint'`,  `'shade'`, or `'pattern'` to add a white transparent, black transparent, or repeating pattern image overlay to the background image. Tints and shades use a CSS linear gradient.
+Set `overlay` to true for a tint, shade, or pattern overlay. Option `overlayType` can have a value of `'tint'`,  `'shade'`, or `'pattern'` to add a white transparent, black transparent, or repeating pattern image overlay to the background image. Tints and shades use a CSS linear gradient with alpha set by the `overlayPercent` setting.
 
 Other CSS options are `bgXPos` for placement of the background image on the x-axis (default is `'center'`), `bgSize` (default is `'cover'`), and `bgRepeat` (default is `'no-repeat'`). If using the pattern overlay option, there is no need to set it to repeat - it will repeat automatically.
 
