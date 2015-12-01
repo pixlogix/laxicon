@@ -1,6 +1,6 @@
 /*!
- * laxicon.js v1.5
- * Crazy simple parallaxing
+ * laxicon.js v1.5.0
+ * Very simple jQuery parallax plugin with background image overlay options.
  * Jeannie Stevenson
  * @JSDesign (github)
  * Licensed under the MIT license

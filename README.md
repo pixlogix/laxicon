@@ -2,7 +2,7 @@
 
 **A jQuery Plugin**
 
-Crazy simple parallax plugin.
+Very simple parallax plugin with background image overlay options.
 
 ## Usage
 

@@ -1,0 +1,24 @@
+{
+  "name": "laxicon",
+  "main": "laxicon.js",
+  "version": "1.5.0",
+  "description": "Very simple jQuery parallax plugin with background image overlay options.",
+  "keywords": [
+    "parallax",
+    "images",
+    "jquery",
+    "plugin"
+  ],
+  "authors": [
+    "Jeannie Stevenson <jeannie.stevenson@gmail.com> (http://jsdesign.me)"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/JSDesign/laxicon",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
