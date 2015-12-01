@@ -1,5 +1,5 @@
 /*!
- * laxicon.js v1.4
+ * laxicon.js v1.5
  * Crazy simple parallaxing
  * Jeannie Stevenson
  * @JSDesign (github)
@@ -21,6 +21,7 @@
             bgRepeat: 'no-repeat',
             overlay: false,
             overlayType: 'shade',
+            overlayPercent: 60,
             overlayPatternPath: 'http://16secondstare.com/admin/wp-content/themes/rockit1/images/pattern/pattern5-bg.png',
             breakpoint: 769
         }, options);
@@ -34,10 +35,14 @@
                 winScrollTop,
                 elemOffsetTop,
                 elemHeight,
-                bgImage;
+                bgImage,
+                overlayFactor;
 
             // set xPos variable to default background x position setting
             xPos = settings.bgXPos;
+
+            // set overlayFactor to a decimal
+            overlayFactor = parseFloat(settings.overlayPercent / 100);
 
             if ($(window).width() >= settings.breakpoint) {
 
@@ -79,10 +84,10 @@
                     // if overlay
                     if (settings.overlay === true) {
                         if (settings.overlayType === 'shade') {
-                            bgImage = 'linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url(' + settings.bgImgPath + ')';
+                            bgImage = 'linear-gradient(to bottom, rgba(0,0,0,' + overlayFactor.toFixed(1) + ') 0%,rgba(0,0,0,' + overlayFactor.toFixed(1) + ') 100%), url(' + settings.bgImgPath + ')';
                             setCSS1();
                         } else if (settings.overlayType === 'tint') {
-                            bgImage = 'linear-gradient(to bottom, rgba(255,255,255,0.6) 0%,rgba(255,255,255,0.6) 100%), url(' + settings.bgImgPath + ')';
+                            bgImage = 'linear-gradient(to bottom, rgba(255,255,255,' + overlayFactor.toFixed(1) + ') 0%,rgba(255,255,255,' + overlayFactor.toFixed(1) + ') 100%), url(' + settings.bgImgPath + ')';
                             setCSS1();
                         } else if (settings.overlayType === 'pattern') {
                             bgImage = 'url(' + settings.overlayPatternPath + '), url(' + settings.bgImgPath + ')';
@@ -137,10 +142,10 @@
                     // if overlay
                     if (settings.overlay === true) {
                         if (settings.overlayType === 'shade') {
-                            bgImage = 'linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url(' + settings.bgImgPath + ')';
+                            bgImage = 'linear-gradient(to bottom, rgba(0,0,0,' + overlayFactor.toFixed(1) + ') 0%,rgba(0,0,0,' + overlayFactor.toFixed(1) + ') 100%), url(' + settings.bgImgPath + ')';
                             setCSS3();
                         } else if (settings.overlayType === 'tint') {
-                            bgImage = 'linear-gradient(to bottom, rgba(255,255,255,0.6) 0%,rgba(255,255,255,0.6) 100%), url(' + settings.bgImgPath + ')';
+                            bgImage = 'linear-gradient(to bottom, rgba(255,255,255,' + overlayFactor.toFixed(1) + ') 0%,rgba(255,255,255,' + overlayFactor.toFixed(1) + ') 100%), url(' + settings.bgImgPath + ')';
                             setCSS3();
                         } else if (settings.overlayType === 'pattern') {
                             bgImage = 'url(' + settings.overlayPatternPath + '), url(' + settings.bgImgPath + ')';
