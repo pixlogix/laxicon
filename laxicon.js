@@ -45,9 +45,9 @@
             // set overlayFactor to a decimal
             overlayFactor = parseFloat(settings.overlayPercent / 100);
 
-            if ($(window).width() >= settings.breakpoint) {
+            $(window).on('load resize scroll', function() {
 
-                $(window).on('load resize scroll', function() {
+                if ($(window).width() >= settings.breakpoint) {
 
                     // constantly set variables for math
                     windowHeight = $(window).height();
@@ -99,11 +99,7 @@
                         setCSS1();
                     }
 
-                });
-
-            } else {
-
-                $(window).on('load resize scroll', function() {
+                } else {
 
                    // constantly set variables for math
                     windowHeight = $(window).height();
@@ -157,9 +153,9 @@
                         setCSS3();
                     }
 
-                });
+                }
 
-            }
+            });
 
         }); // end plugin loop
 
