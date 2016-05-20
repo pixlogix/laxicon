@@ -33,6 +33,8 @@ This will add very basic parallax function to background images. Set up the sect
 
 **Call Function with Just Image Path**
 
+Function should be called in window load and resize functions for best performance with orientation switchable devices.
+
 ````javascript
 $('.parallax').laxicon({
     bgImgPath: 'images/stock-ferris-wheel.jpg'
@@ -74,21 +76,3 @@ Licensed under the terms of the MIT license.
 #### Notes
 
 Built by Jeannie Stevenson using oxford commas, enthusiasm, and brains.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

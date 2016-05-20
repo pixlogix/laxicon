@@ -1,5 +1,5 @@
 /*!
- * laxicon.js v1.5.0
+ * laxicon.js v1.5.1
  * Very simple jQuery parallax plugin with background image overlay options.
  * Jeannie Stevenson
  * @JSDesign (github)
@@ -24,7 +24,8 @@
             overlayType: 'shade',
             overlayPercent: 60,
             overlayPatternPath: 'http://jsdesign.me/projects/images/screening3.png',
-            breakpoint: 769
+            breakpoint: 769,
+            mobileBgSize: '100%'
         }, options);
 
         return this.each( function() {
@@ -37,7 +38,11 @@
                 elemOffsetTop,
                 elemHeight,
                 bgImage,
-                overlayFactor;
+                overlayFactor,
+                viewportMin;
+
+            // set viewport variable to breakpoitn option
+            viewportMin = window.matchMedia(settings.breakpoint);
 
             // set xPos variable to default background x position setting
             xPos = settings.bgXPos;
@@ -47,7 +52,7 @@
 
             $(window).on('load resize scroll', function() {
 
-                if ($(window).width() >= settings.breakpoint) {
+                if (viewportMin.matches) {
 
                     // constantly set variables for math
                     windowHeight = $(window).height();
@@ -117,7 +122,7 @@
                         $element.css({
                             backgroundImage: bgImage,
                             backgroundPosition: xPos + ' top',
-                            backgroundSize: 'auto 100%',
+                            backgroundSize: settings.mobileBgSize,
                             backgroundRepeat: settings.bgRepeat,
                             // for now :(
                             backgroundAttachment: 'scroll'
@@ -129,7 +134,7 @@
                         $element.css({
                             backgroundImage: bgImage,
                             backgroundPosition: 'top left, ' + xPos + ' top',
-                            backgroundSize: 'auto, auto 100%',
+                            backgroundSize: 'auto, ' + settings.mobileBgSize,
                             backgroundRepeat: 'repeat, ' + settings.bgRepeat,
                             // for now :(
                             backgroundAttachment: 'scroll'
