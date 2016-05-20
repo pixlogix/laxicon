@@ -42,7 +42,7 @@
                 viewportMin;
 
             // set viewport variable to breakpoitn option
-            viewportMin = window.matchMedia(settings.breakpoint);
+            viewportMin = window.matchMedia('(min-width: ' + settings.breakpoint + 'px)');
 
             // set xPos variable to default background x position setting
             xPos = settings.bgXPos;
