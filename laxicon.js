@@ -1,5 +1,5 @@
 /*!
- * laxicon.js v1.5.1
+ * laxicon.js v1.5.2
  * Very simple jQuery parallax plugin with background image overlay options.
  * Jeannie Stevenson
  * @JSDesign (github)
@@ -66,7 +66,7 @@
                     }
 
                     // css for tint, shade, or none
-                    function setCSS1() {
+                    var setCSS1 = function() {
                         $element.css({
                             backgroundImage: bgImage,
                             backgroundPosition: xPos + ' ' + (Math.round((elemOffsetTop - winScrollTop) * settings.speed)) + 'px',
@@ -77,7 +77,7 @@
                     }
 
                     // css for pattern
-                    function setCSS2() {
+                    var setCSS2 = function() {
                         $element.css({
                             backgroundImage: bgImage,
                             backgroundPosition: 'top left, ' + xPos + ' ' + (Math.round((elemOffsetTop - winScrollTop) * settings.speed)) + 'px',
@@ -118,7 +118,7 @@
                     }
 
                     // css for tint, shade, or none
-                    function setCSS3() {
+                    var setCSS3 = function() {
                         $element.css({
                             backgroundImage: bgImage,
                             backgroundPosition: xPos + ' top',
@@ -130,7 +130,7 @@
                     }
 
                     // css for pattern
-                    function setCSS4() {
+                    var setCSS4 = function() {
                         $element.css({
                             backgroundImage: bgImage,
                             backgroundPosition: 'top left, ' + xPos + ' top',
