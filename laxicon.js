@@ -16,15 +16,16 @@
         // declare default options
         var settings = $.extend({
             speed: 0.15,
-            bgImgPath: 'https://download.unsplash.com/photo-1434145175661-472d90344c15',
+            bgImgPath: 'http://jsdesign.me/projects/laxicon/images/sheep.jpg',
             bgXPos: 'center',
             bgSize: 'cover',
             bgRepeat: 'no-repeat',
             overlay: false,
             overlayType: 'shade',
             overlayPercent: 60,
-            overlayPatternPath: 'http://jsdesign.me/projects/images/screening3.png',
+            overlayPatternPath: 'http://jsdesign.me/projects/laxicon/images/screening3.png',
             breakpoint: 769,
+            mobileBgImgPath: 'http://jsdesign.me/projects/laxicon/images/sheep-sm.jpg',
             mobileBgSize: '100%'
         }, options);
 
@@ -144,17 +145,17 @@
                     // if overlay
                     if (settings.overlay === true) {
                         if (settings.overlayType === 'shade') {
-                            bgImage = 'linear-gradient(to bottom, rgba(0,0,0,' + overlayFactor.toFixed(1) + ') 0%,rgba(0,0,0,' + overlayFactor.toFixed(1) + ') 100%), url(' + settings.bgImgPath + ')';
+                            bgImage = 'linear-gradient(to bottom, rgba(0,0,0,' + overlayFactor.toFixed(1) + ') 0%,rgba(0,0,0,' + overlayFactor.toFixed(1) + ') 100%), url(' + settings.mobileBgImgPath + ')';
                             setCSS3();
                         } else if (settings.overlayType === 'tint') {
-                            bgImage = 'linear-gradient(to bottom, rgba(255,255,255,' + overlayFactor.toFixed(1) + ') 0%,rgba(255,255,255,' + overlayFactor.toFixed(1) + ') 100%), url(' + settings.bgImgPath + ')';
+                            bgImage = 'linear-gradient(to bottom, rgba(255,255,255,' + overlayFactor.toFixed(1) + ') 0%,rgba(255,255,255,' + overlayFactor.toFixed(1) + ') 100%), url(' + settings.mobileBgImgPath + ')';
                             setCSS3();
                         } else if (settings.overlayType === 'pattern') {
-                            bgImage = 'url(' + settings.overlayPatternPath + '), url(' + settings.bgImgPath + ')';
+                            bgImage = 'url(' + settings.overlayPatternPath + '), url(' + settings.mobileBgImgPath + ')';
                             setCSS4();
                         }
                     } else {
-                        bgImage = 'url(' + settings.bgImgPath + ')';
+                        bgImage = 'url(' + settings.mobileBgImgPath + ')';
                         setCSS3();
                     }
 
