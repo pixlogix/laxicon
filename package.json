@@ -1,6 +1,6 @@
 {
   "name": "laxicon",
-  "version": "1.5.2",
+  "version": "1.5.3",
   "description": "Very simple jQuery parallax plugin with background image overlay options.",
   "main": "laxicon.js",
   "repository": {
